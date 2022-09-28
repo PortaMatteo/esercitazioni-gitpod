@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./terzo.component.css']
 })
 export class TerzoComponent implements OnInit {
-
+  parola = "terzo";
   constructor() { }
 
   ngOnInit(): void {
