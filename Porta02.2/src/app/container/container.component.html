@@ -1,1 +1,5 @@
-<p>container works!</p>
+<ul>
+    <li *ngFor="let c of MacchineDaCantiere">
+        <app-macchina [macchina] = "c"></app-macchina>
+    </li>
+</ul>
