@@ -1,1 +1,16 @@
-<p>foo works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Basic Request</h2>
+    <button type="button" (click)="makeRequest()">Make Request</button>
+    <div *ngIf="loading">loading...</div>
+    <pre>{{data | json}}</pre>
+    <button type="button" (click)="makeCompactPost()">Make Post</button>
+</body>
+</html>
