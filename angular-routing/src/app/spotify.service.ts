@@ -26,5 +26,7 @@ export class SpotifyService {
       return this.http.get(url, { headers });
     }
 
+    // getArtist viene richiamata nel componente artista
+
    }
 
