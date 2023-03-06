@@ -1,4 +1,11 @@
-<p>artist works!</p>
-{{artist | json}}
-{{artist}}
-asasa
+<div *ngIf="artist">
+    <h1>{{ artist.name }}</h1>
+    <p>
+        <img src="{{ artist.images[1].url }}">
+    </p>
+    <h2>Followers: {{artist.followers.total}}</h2>
+    <h2>Generi: {{artist.genres}}</h2>
+    {{artist|json}}
+
+    
+</div>

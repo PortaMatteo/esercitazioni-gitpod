@@ -30,11 +30,8 @@ export class ArtistComponent {
     console.log(artistId); //Stampo su console
     //spotifyServiceObs va dichiarato
     if (artistId != null) {
-      this.spotifyServiceObs = this.service.getTrack(artistId);
-      this.spotifyServiceObs.subscribe((data) => {
-        this.artist = data;
-        console.log(this.artist)
-      })
+      this.spotifyServiceObs = this.service.getArtist(artistId);
+      this.spotifyServiceObs.subscribe((data) => this.artist = data)
     }
   }
 }
