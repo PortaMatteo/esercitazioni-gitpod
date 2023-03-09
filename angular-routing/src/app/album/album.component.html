@@ -1,9 +1,26 @@
 <div>
     <h1>{{album.name}}</h1>
-    <p>{{album.artists[0].name}}</p>
-    <p>
-        <img src="{{album.images[1].url}}" alt="">
-    </p>
-    <p>{{album.items}}</p>
-    {{album|json}}
+    <h4>{{album.artists[0].name}}</h4>
+    <div class="row px-4">
+        <div class="col-2">
+            <img src="{{album.images[1].url}}" alt="">
+        </div>
+        <div class="col-10">
+            <h3>Tracce:</h3>
+            <div *ngFor="let t of album.tracks.items">
+            
+                <ul class="list-group">
+                    <li class="list-group-item">            
+                        <a [routerLink]="['/tracks', t.id]">
+                        {{ t.name }}
+                      </a></li>
+    
+                  </ul>
+            </div>
+        </div>
+        </div>
+        {{album|json}}
+
+    
+
 </div>
