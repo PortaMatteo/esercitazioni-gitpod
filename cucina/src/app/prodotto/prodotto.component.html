@@ -1,0 +1,9 @@
+<div class="d-flex justify-content-center">
+    <div *ngIf="product">
+        <img src="{{product.product.image_front_url}}">
+        <h4>{{product.product.product_name}}</h4>
+    </div>
+    <p><a href (click)="back()">Back</a></p>
+</div>
+
+
