@@ -5,11 +5,10 @@ import {HttpClient} from '@angular/common/http';
   providedIn: 'root'
 })
 export class CucinaService {
-
   constructor(private http: HttpClient) { }
 
   searchProducts(query: string){
-    const url = `https://world.openfoodfacts.org/cgi/search.pl?search_terms=${query}&page_size=2&json=true`
+    const url = `https://world.openfoodfacts.org/cgi/search.pl?search_terms=${query}&page_size=30&json=true`
     
     return this.http.get(url)
     
