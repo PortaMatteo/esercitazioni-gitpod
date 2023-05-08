@@ -1,19 +1,17 @@
-import { Component } from '@angular/core';
-import * as L from 'leaflet'; // Importiamo leaflet
+import { AfterViewInit, Component } from '@angular/core';
+import * as L from 'leaflet';
 import { GEOJSON, GeoFeatureCollection } from './models/geojson.model';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-
+export class AppComponent implements AfterViewInit {
   private map: any;
-  geoJsonObject !: any;
-  fillColor: any;
-  title: any;
-
+  title = 'Geojson-Leaflet';
+  geoJsonObject : any;
   
   private initMap(): void {
     // Creazione della mappa 
@@ -21,7 +19,7 @@ export class AppComponent {
       center: [45.464211, 9.191383], // Latitudine e longitudine del centro della mappa
       zoom: 12,
     });
-
+    
     // Aggiunta del tile alla mappa 
     const tiles = L.tileLayer( 
        // Aggiunge il Layer Tile che in questo caso prendiamo da openstreetmap 
@@ -32,43 +30,33 @@ export class AppComponent {
         attribution:
           '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
       }
-
-      
     );  
+    
 
+    L.geoJSON(this.geoJsonObject).setStyle(this.styleFunc).addTo(this.map);// Aggiunge l'oggetto geojson all mappa 
     tiles.addTo(this.map);  // Aggiunge il tile alla mappa 
-    this.geoJsonObject = GEOJSON;
+    
+  };
 
-    L.geoJSON(this.geoJsonObject).setStyle(this.styleFunc).addTo(this.map);
-    console.log(this.geoJsonObject);
-
-    for (var i = 0; i <= this.geoJsonObject.features.length; i++) {
-      L.marker([this.geoJsonObject.features[i].geometry.coordinates[0][0][1], this.geoJsonObject.features[i].geometry.coordinates[0][0][0]]).bindPopup(String(i)).addTo(this.map);
-    }
-  }
-  styleFunc = (feature: any) =>{
+  styleFunc = (feature:any) =>{
     console.log(feature.properties.id)
     let newColor = "#FF0000"; //RED
     if(feature.properties.id == 0) newColor = "#00FF00"; //GREEN
     else newColor = "#0000FF"; //BLUE
     return ({
-        clickable: false,
-        fillColor: newColor, // Colora solo l'interno 
-        strokeWeight: 1,
-        color: newColor // Colora tutto il poligono 
+      clickable: false,
+      //fillColor: newColor,
+      strokeWeight: 1,
+      color : newColor // Colora L'intero poligono se solo, utilizzando fillcolor colora solo il bordo 
     });
   }
 
   constructor() {
+    this.geoJsonObject = GEOJSON;  
+    console.log(this.geoJsonObject);
   }
-  
+
   ngAfterViewInit(): void {
     this.initMap();
   }
-
 }
-
-
-
-
-
