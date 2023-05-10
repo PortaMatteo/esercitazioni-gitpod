@@ -35,10 +35,23 @@ export class AppComponent implements AfterViewInit {
 
     L.geoJSON(this.geoJsonObject).setStyle(this.styleFunc).addTo(this.map);// Aggiunge l'oggetto geojson all mappa 
     tiles.addTo(this.map);  // Aggiunge il tile alla mappa 
+
+    /*const marker0 = new L.Marker([this.geoJsonObject.features[0].geometry.coordinates[0][0][1], this.geoJsonObject.features[0].geometry.coordinates[0][0][0]]).bindPopup(String(0)).addTo(this.map);
+    marker0.addTo(this.map);
+ 
+    const marker1 = new L.Marker([this.geoJsonObject.features[1].geometry.coordinates[0][0][1], this.geoJsonObject.features[1].geometry.coordinates[0][0][0]]).bindPopup(String(1)).addTo(this.map);
+    marker1.addTo(this.map);
+    */
+   
+    for (var i = 0; i < this.geoJsonObject.features.length; i++) {
+      L.marker([this.geoJsonObject.features[i].geometry.coordinates[0][0][1], this.geoJsonObject.features[i].geometry.coordinates[0][0][0]]).bindPopup(String(i)).addTo(this.map);
+    }
+ 
     
   };
 
   styleFunc = (feature:any) =>{
+    console.log(feature)
     console.log(feature.properties.id)
     let newColor = "#FF0000"; //RED
     if(feature.properties.id == 0) newColor = "#00FF00"; //GREEN

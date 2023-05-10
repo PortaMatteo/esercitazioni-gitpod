@@ -42,7 +42,7 @@ export class AppComponent {
     L.geoJSON(this.geoJsonObject).setStyle(this.styleFunc).addTo(this.map);
     console.log(this.geoJsonObject);
 
-    for (var i = 0; i <= this.geoJsonObject.features.length; i++) {
+    for (var i = 0; i < this.geoJsonObject.features.length; i++) {
       L.marker([this.geoJsonObject.features[i].geometry.coordinates[0][0][1], this.geoJsonObject.features[i].geometry.coordinates[0][0][0]]).bindPopup(String(i)).addTo(this.map);
     }
   }
