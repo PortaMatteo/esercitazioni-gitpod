@@ -1,1 +1,6 @@
-{{data|json}}
+
+<div *ngFor = "let type of data.results">
+    <li><a routerLink="/pokemon/{{type.name}}"> {{type.name}}</a></li>
+    
+</div>
+<router-outlet></router-outlet>
