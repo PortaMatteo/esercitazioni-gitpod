@@ -34,7 +34,7 @@ export class PokemonComponent {
     }
   }
 
-  dosomething(data: any){
+  dosomething=(data: any)=>{
     this.pokemonList = data;
     console.log(this.pokemonList)
   }
