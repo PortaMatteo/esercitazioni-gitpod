@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PokemonComponent } from './pokemon/pokemon.component';
 import { ListaComponent } from './lista/lista.component';
+import { DetailsComponent } from './details/details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PokemonComponent,
-    ListaComponent
+    ListaComponent,
+    DetailsComponent
   ],
   imports: [
     HttpClientModule,

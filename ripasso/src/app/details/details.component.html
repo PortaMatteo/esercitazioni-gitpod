@@ -1,0 +1,17 @@
+<h2>Ability</h2>
+<div *ngFor = "let detail of details.abilities">
+    <li >{{detail.ability.name}}</li>
+</div>
+ 
+<h2>Exp</h2>
+<p>{{details.base_experience}}</p>
+
+<h2>Forms</h2>
+<div *ngFor = "let detail of details.forms">
+    <li >{{detail.name}}</li>
+</div>
+
+<h2>Moves</h2>
+<div *ngFor = "let detail of details.moves">
+    <li >{{detail.move.name}}</li>
+</div>

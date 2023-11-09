@@ -38,5 +38,11 @@ export class PokemonComponent {
     this.pokemonList = data;
     console.log(this.pokemonList)
   }
+
+  getLastPart(data: string){
+    let url = data.split("/").slice(-2)
+    console.log(url[0])
+    return url[0]
+  }
   
 }
