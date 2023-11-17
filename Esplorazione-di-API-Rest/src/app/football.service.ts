@@ -1,9 +1,22 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FootballService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+
+  searchLeague(query: string) {
+    const url = `https://v3.football.api-sports.io/leagues?name=serie%20A`;
+    const headers = new HttpHeaders({
+      "x-rapidapi-key": "",
+      "x-rapidapi-host": "v3.football.api-sports.io"
+    });
+
+    let idLeague = this.http.get(url, { headers: headers });
+    return idLeague;
+    //Ritorno un observable ai componenti che richiedono il servizio
+  }
 }
