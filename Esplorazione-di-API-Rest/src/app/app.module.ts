@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { TeamsListComponent } from './teams-list/teams-list.component';
 import { PlayerListComponent } from './player-list/player-list.component';
 import { PlayerDetailComponent } from './player-detail/player-detail.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { PlayerDetailComponent } from './player-detail/player-detail.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
