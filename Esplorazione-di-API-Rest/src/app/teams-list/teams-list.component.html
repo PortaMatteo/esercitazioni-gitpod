@@ -1,1 +1,4 @@
-<p>teams-list works!</p>
+{{results|json}}
+<div *ngFor = "let team of results.response">
+    <li ><a routerLink="/teams/detail">{{team.team.name}}</a></li>
+</div>
